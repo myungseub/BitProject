@@ -1,0 +1,77 @@
+.red {
+	background-color: #FF0040;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.blue {
+	background-color: #5858FA;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.white {
+	background-color: #FFFFFF;
+}
+
+.check {
+	background-color: #FFFFFF;
+}
+
+.back {
+	background-color: #dbdbdb;
+}
+
+.fileDrop {
+  height: 100px;
+  width: 100px;
+  border: 1px dotted #ffffff;
+  background-color: #ffffff;
+  margin: 0px;
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+
+/*   vertical-align: middle; */
+  
+}
+
+.out {FONT-SIZE: 30PX}
+
+.zero {
+	top: 0px;
+	left: 0px;
+	position: absolute;
+}
+
+.relative {
+	position: relative;
+}
+
+
+
+.hh {
+/* 	display: inline-block; */
+width: 100px;
+	text-align: center;
+	top: 103px;
+	position: absolute;
+/* 	margin: 0 auto; */
+	
+}
+.h {
+/* 	display: inline-block; */
+width: 100px;
+	text-align: center;
+	top: 115px;
+	position: absolute;
+	
+}
+
+.hhh {
+	display: inline-block;
+	width: 102px;
+	height: 140px;
+}
+
+.centered { margin-left: auto; margin-right: auto; display: inline-block; }

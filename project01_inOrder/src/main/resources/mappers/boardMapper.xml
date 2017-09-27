@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.mapper.BoardMapper">
+
+
+
+
+	<insert id="create1">
+		insert into bugger1 (koName1, tab1, price1, engName1, launch1, best1, sold1, Photo1, regdate1)
+		values(#{koName1}, #{tab1}, #{price1}, #{engName1}, #{launch1}, #{best1},#{sold1}, #{photo1}, #{regdate1})
+	</insert>
+	
+	
+	<insert id="create2">
+		insert into bugger2 (koName2, tab2, tab23, price2, engName2, launch2, best2, sold2, Photo2, regdate2)
+		values(#{koName2}, #{tab2}, #{tab23}, #{price2}, #{engName2}, #{launch2}, #{best2}, #{sold2}, #{photo2}, #{regdate2})
+	</insert>
+
+
+
+
+
+	<update id="update1tab">
+		update bugger1
+			set tab1=7
+		where bugger1No = #{bugger1No}
+	</update>
+
+	<update id="update1">
+		update bugger1
+			set koName1=#{koName1}, engName1=#{engName1}, tab1=#{tab1}, price1=#{price1}, sold1=#{sold1}, launch1=#{launch1}, best1=#{best1}, photo1=#{photo1}
+		where bugger1No = #{bugger1No}
+	</update>
+ 
+
+	<update id="update2">
+		update bugger2
+			set koName2=#{koName2}, tab2=#{tab2}, tab23=#{tab23}, price2=#{price2}, engName2=#{engName2}, launch2=#{launch2}, sold2=#{sold2}, launch2=#{launch2}, best2=#{best2}, photo2=#{photo2}
+		where bugger2No = #{bugger2No}
+	</update>
+	
+	
+	
+	
+	
+	
+	<delete id="delete1">
+		delete from bugger1 where bugger1No = #{bugger1No}
+	</delete>
+	
+	
+	<delete id="delete2">
+		delete from bugger2 where bugger2No = #{bugger2No}
+	</delete>
+	
+	
+	
+	
+	
+
+
+	
+
+
+	<select id="read1" resultType="kr.co.domain.Bugger1VO">
+		select
+		bugger1No, koName1, tab1, price1, engName1, launch1, best1, sold1, Photo1
+		from
+		bugger1
+		where bugger1No = #{bugger1No}
+	</select>
+
+
+	<select id="read2" resultType="kr.co.domain.Bugger2VO">
+		select
+		bugger2No, koName2, tab2, tab23, price2, engName2, launch2, best2, sold2, Photo2
+		from
+		bugger2
+		where bugger2No = #{bugger2No}
+	</select>
+	
+	
+
+
+ <select id="listCriteria1" resultType="kr.co.domain.Bugger1VO">
+ <![CDATA[
+ select 
+   koName1, engName1, launch1, best1, sold1, Photo1
+ from 
+   bugger1
+ where bugger1No > 0 
+ order by bugger1No desc, regdate1 desc
+ 
+ limit #{pageStart}, #{perPageNum}
+ ]]>
+ </select>
+
+
+ <select id="listCriteria2" resultType="kr.co.domain.Bugger2VO">
+ <![CDATA[
+ select 
+	koName2, engName2, launch2, best2, sold2, Photo2
+ from
+   bugger2 
+ where bugger2No > 0 and tab2=#{tab2} and tab23=#{tab23} 
+ order by bugger2No desc, regdate2 desc
+ 
+ limit #{pageStart}, #{perPageNum}
+ ]]>
+ </select>
+ 
+ 
+
+
+
+
+
+	<select id="countPaging1" resultType="int">
+ <![CDATA[
+ select 
+   count(bugger1No) 
+ from 
+   bugger1
+ where 
+   bugger1No > 0
+ ]]>
+	</select>
+
+
+	<select id="countPaging2" resultType="int">
+ <![CDATA[
+ select 
+   count(bugger2No)
+ from 
+   bugger2 
+ where 
+   bugger2No > 0
+ ]]>
+	</select>
+
+
+
+	<sql id="search1">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and koName1 like CONCAT('%', #{keyword}, '%')
+			</if>
+			
+			<if test="searchType == 'e'.toString()">
+				and engName1 like CONCAT('%', #{keyword}, '%')
+			</if>
+			<!--  
+			<if test="searchType == 'c'.toString()">
+				and content like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and writer like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'tc'.toString()">
+				and ( title like CONCAT('%', #{keyword}, '%') OR content like
+				CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'cw'.toString()">
+				and ( content like CONCAT('%', #{keyword}, '%') OR writer like
+				CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'tcw'.toString()">
+				and ( title like CONCAT('%', #{keyword}, '%')
+				OR
+				content like CONCAT('%', #{keyword}, '%')
+				OR
+				writer like CONCAT('%', #{keyword}, '%'))
+			</if>
+			-->
+		</if>
+	</sql>
+
+	<select id="listSearch1" resultType="Bugger1VO">
+	<![CDATA[  
+	  select * 
+	  from bugger1
+
+	  where bugger1No > 0 
+	  ]]>
+	 <choose>
+    <when test="tab1 == 0">
+<!--       AND tab1 like 0 -->
+    </when>
+    <otherwise>
+      and tab1=#{tab1}
+    </otherwise>
+  </choose>
+	
+
+	<include refid="search1"></include>
+	<![CDATA[    
+	  order by bugger1No desc
+	  limit #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+
+
+	<select id="listSearchCount1" resultType="int">
+	<![CDATA[  
+	  select count(bugger1No) 
+	  from bugger1 
+	  where bugger1No > 0
+	]]>
+		 <choose>
+    <when test="tab1 == 0">
+<!--       AND tab1 like '%' -->
+    </when>
+    <otherwise>
+      and tab1=#{tab1}
+    </otherwise>
+  </choose>
+	<include refid="search1"></include>
+	</select>
+
+
+
+	<sql id="search2">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and koName2 like CONCAT('%', #{keyword}, '%')
+			</if>
+			
+			<if test="searchType == 'e'.toString()">
+				and engName2 like CONCAT('%', #{keyword}, '%')
+			</if>
+			
+			<!--  
+			<if test="searchType == 'w'.toString()">
+				and writer like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'tc'.toString()">
+				and ( title like CONCAT('%', #{keyword}, '%') OR content like
+				CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'cw'.toString()">
+				and ( content like CONCAT('%', #{keyword}, '%') OR writer like
+				CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'tcw'.toString()">
+				and ( title like CONCAT('%', #{keyword}, '%')
+				OR
+				content like CONCAT('%', #{keyword}, '%')
+				OR
+				writer like CONCAT('%', #{keyword}, '%'))
+			</if>
+			-->
+		</if>
+	</sql>
+
+	<select id="listSearch2" resultType="Bugger2VO">
+	<![CDATA[  
+	  select * 
+	  from bugger2 
+	  where bugger2No > 0 
+	]]>
+
+	<include refid="search2"></include>
+	<![CDATA[    
+	  order by bugger2No desc
+	  limit #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+
+
+
+	<select id="listSearchCount2" resultType="int">
+	<![CDATA[  
+	  select count(bugger2No) 
+	  from bugger2
+	  where bugger2No > 0 
+	]]>
+	<include refid="search2"></include>
+	</select>
+
+
+ <!--
+<update id="updateReplyCnt">
+  update tbl_board set replycnt = replycnt + #{amount} where bugger1No = #{bugger1No}
+</update>
+
+
+<update id="updateViewCnt">
+  update tbl_board set viewcnt = viewcnt +1 where bugger1No = #{bugger1No}
+</update>
+  -->
+
+
+
+
+
+ 
+<!-- <insert id="addAttach1"> -->
+<!-- insert into tbl_attach(fullname, bugger1No) values (#{fullName}, LAST_INSERT_ID()) -->
+<!-- </insert>  -->
+
+
+<!-- <select id="getAttach1" resultType="string"> -->
+<!-- select photo1 from bugger1 where bugger1No = #{bugger1No} order by regdate -->
+<!-- </select>  -->
+
+ 
+<!-- <delete id="deleteAttach1"> -->
+<!-- delete from bugger1 where bugger1No = #{bugger1No} -->
+<!-- </delete> -->
+
+<!-- <insert id="replaceAttach1"> -->
+<!-- insert into bugger1(fullname, bugger1No) values (#{fullName}, #{bugger1No}) -->
+<!-- </insert> -->
+
+
+ 
+<!-- <insert id="addAttach2"> -->
+<!-- insert into tbl_attach(fullname, bugger1No) values (#{fullName}, LAST_INSERT_ID()) -->
+<!-- </insert>  -->
+
+
+<select id="getAttach2" resultType="string">
+select fullname from bugger2 where bugger1No = #{bugger1No} order by regdate
+</select> 
+
+ 
+<delete id="deleteAttach2">
+delete from bugger2 where bugger1No = #{bugger1No}
+</delete>
+
+<insert id="replaceAttach2">
+insert into bugger2(fullname, bugger1No) values (#{fullName}, #{bugger1No})
+</insert>
+
+
+
+ 
+</mapper>
