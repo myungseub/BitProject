@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="particle_group.css">
+</head>
+
+<body>
+
+<textarea id="put"></textarea>
+
+<button onclick="input(1);">뒤집기</button>
+<button onclick="input(2);">역순</button>
+<button onclick="input(4);">세우기</button>
+<button onclick="input(3);">빈칸</button>
+<button onclick="input(5);">암기</button>
+
+
+	<script>
+//  		var j = 0;
+
+		
+		function closer() {
+			var k=0;
+ 			function addCloser(){
+				k++;
+				return k;
+ 			}
+ 			return addCloser;
+		}
+		var abc = closer();
+		
+		
+		
+		function closer2() {
+			var k=0;
+ 			function addCloser2(){
+				k++;
+				return k;
+ 			}
+ 			return addCloser2;
+		}
+		var abc2 = closer2();
+		
+		
+		
+		function closer3() {
+			var k=0;
+ 			function addCloser3(){
+				k++;
+				return k;
+ 			}
+ 			return addCloser3;
+		}
+		var abc3 = closer3();
+		
+	
+		
+	function input(how){
+		
+		
+		
+		if(how!=4){$("div").remove();}
+		var s = rowValue();
+		$("br").remove();
+		
+// 	 	document.querySelector("body").innerText = "<div>"+s+"</div>";
+		
+		
+		if(how != 4 && how != 5 || s != "") {
+// 			var qq=abc();
+			document.querySelector("body").innerHTML += "<p class="+abc3()+">"+s+"</p>";
+			abc();
+ 		}
+		
+		
+// 		if(qaz == undefined) {var qaz = abcd; var ert = false;}
+
+		
+		
+		
+		
+// 		ele = document.createElement("p");
+// 		ele.appendChild(document.createTextNode(s));
+// 		document.querySelector("body").appendChild(ele);
+		
+
+		if(how == 5){qq=abc()-abc2();}
+
+		
+		
+		var count = s.length
+		switch(how) {
+			case 2:
+				for (var i = count-1; i >=0  ; i--) {
+					
+					arrayset(s, i)			
+				}
+// 				document.getElementById("input").value = "";
+				addAttribute();
+				
+				break;
+			
+ 			case 5:
+//  				$("br").remove();
+//  				$("p").setAttribute("class", "one");
+// 	 			var q = document.querySelectorAll("p");
+	
+//  				console.log(qq);
+ 				
+//  				if(ghgh == undefined) {var ghgh = true; var abcd = parseInt( abc() )};
+ 				
+//  				f(qaz == undefined) {var qaz = abcd-1;}
+// 				$("br."+qaz).remove();
+// 				++qaz;
+				
+				for (var i = 1; i <= qq; i++) {
+// 					console.log(i);
+// 					var pp = String(i);
+	 				var ss = $("p."+i).text();
+// 	 				console.log(ss);
+	 				
+					for (var z = 0; z < ss.length ; z++) {
+// 						var ww = arrayset(ss, z);  // 에러
+						arrayset(ss, z);
+					}
+
+					
+// 					var iii =;
+// 					for (var ii = 0; ii < ss.length; ii++) {
+					
+// 						iii = ss.charAt(ii);
+
+// 					}
+					
+// 					console.log(iii);
+					
+					
+					if (kkkk == undefined) {var kkkk = true;}
+// 					var kkkk = kkkk + 1;
+					aaa = false;
+					
+					var jj = 0;
+					var div = $("div");
+					for (var ii = 0; ii < ss.length/2; ii++) {
+						
+
+						jj = parseInt(Math.random()*(ss.length));
+						
+// 						console.log($("p."+jj).text());
+						console.log(jj);
+						if (jjj == undefined) {var jjj = 0; var aaa = false; var res = 0;}
+
+						
+						if(aaa != kkkk) {var jjj = jjj + res; aaa = kkkk;}
+						
+						
+						div[jj+jjj].setAttribute("class", "blank");
+						
+						
+
+	
+					}
+
+					res = ss.length;
+					
+// 					document.write("<br>");
+// 					if(qq >= i) {
+						document.querySelector("body").innerHTML += "<br class="+i+">";
+// 					document.write("<br>");
+// 					}
+					
+						
+
+						
+
+
+				}
+// 				var qaz = String(abcd);
+// 				if(qaz == undefined) {var qaz = abcd; var ert = false;}
+				
+// 				var qaz = abcd;
+// 				if(ert != false){
+// 					$("br."+qaz).remove();
+// 					++qaz;
+// 				}
+// 				ert = true;
+// 				$("br.4").remove();
+
+
+
+
+// 				var asdf = abc2()-1;
+// 				if(asdf > 3) {
+//  					$("br."+asdf).remove();
+// 				}
+				break;
+				
+				
+				
+			case 1:		
+			
+			case 3:
+				
+				
+				
+				
+// 		 		function output(){
+// 		 		document.getElementById("put").value = "old";
+// 		 		}
+				for (var i = 0; i < count; i++) {
+					
+					arrayset(s, i);
+				}
+				if(how==1) {addAttribute();	break;}
+						
+				
+								
+					var div = $("div");
+					var j
+				for (var i = 0; i < count/2; i++) {
+					
+					j = parseInt(Math.random()*count);
+					
+					div[j].setAttribute("class", "blank");
+					
+				}
+					
+			
+					
+			case 4:
+				$("div").removeClass("updown");			
+			
+				
+
+		
+		}
+		var start = document.querySelector("#put");
+		if(start==undefined) {
+			start.value = "";
+		}else{
+			start.value = "";
+		}
+		
+	start.select();
+
+	}
+	
+
+	
+	
+	
+	function addAttribute(){
+		var div = $("div");
+		for (var i = 0; i < div.length; i++) {
+			div[i].setAttribute("class", "updown");
+		}
+
+	}
+
+	
+	
+	function rowValue(){return document.getElementById("put").value;}
+	
+	
+	function arrayset(s, i){
+		var w = s.charAt(i);
+// 		var ww += w;
+		document.querySelector("body").innerHTML += "<div>"+w+"</div>";
+// 		return w;
+		
+// 		ele = document.createElement("div");
+		
+// 		ele.appendChild(document.createTextNode(s.charAt(i)));
+		
+// 		document.querySelector("body").appendChild(ele);
+	}
+	
+
+	</script>
+</body>
+</html>

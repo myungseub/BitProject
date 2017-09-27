@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="particle_group.css">
+</head>
+
+<body>
+
+	
+
+<!-- 	<button id="btn1">시작</button>
+
+	 	<script>
+		console.log($("#btn1").html());
+		btn.addEventListener("click", function(e) {
+			
+			});
+	
+		function spring_function(msg) {
+			divObj.innerHTML += msg + "<br>";
+		}
+	 	</script>  -->
+<!-- 		<textarea name="content" cols="70" rows="8">김명섭은 천재</textarea> -->
+	
+<textarea id="input" cols="70" rows="8"></textarea>
+<button onclick="input()">뒤집기</button>
+<button onclick="reverse()">역순</button>
+<!-- <textarea id="output" cols="70" rows="8"></textarea> -->
+<!-- <button onclick="output()">출력하기</button> -->
+
+
+
+
+	
+	
+	
+	
+	<script>
+	
+	function input(){
+		var s = rowValue();
+		for (var i = 0; i < s.length; i++) {
+			arrayset(s, i);
+
+		}
+		
+		
+			
+		addAttribute();
+
+		}
+	
+	function reverse(){
+		var s = rowValue();
+
+		for (var i = s.length-1; i >=0  ; i--) {
+			
+			
+			arrayset(s, i)
+			
+
+		}
+		
+		
+			addAttribute();
+			
+		}
+	
+
+	function addAttribute(){
+	var div = $("div");
+	// 	var btn = document.querySelectorAll("button");
+			
+		for (var i = 0; i < div.length; i++) {
+	// 		btn[i].setAttribute("id", "a("+i+")");
+			div[i].setAttribute("class", "updown");
+			div[i].setAttribute("id", i);
+	// 		btn[i].attr("id", i);
+	
+			}
+	}
+	function rowValue(){return document.getElementById("input").value;}
+	function arrayset(s, i){
+		ele = document.createElement("div");
+		ele.appendChild(document.createTextNode(s.charAt(i)));
+		
+		document.querySelector("body").appendChild(ele);
+		
+	}
+// 		function output(){
+// 		document.getElementById("output").value = "temp";
+// 		}
+
+	
+// 	var s = $("textarea").text();
+// for (var i = 0; i < s.length; i++) {
+// 	ele = document.createElement("div");
+// 	ele.appendChild(document.createTextNode(s.charAt(i)));
+	
+// 	document.querySelector("body").appendChild(ele);
+// }
+
+
+	
+		
+// 	var div = $("div");
+// 	var btn = document.querySelectorAll("button");
+		
+// 	for (var i = 0; i < div.length; i++) {
+// 		btn[i].setAttribute("id", "a("+i+")");
+// 		div[i].setAttribute("class", "updown");
+// 		div[i].setAttribute("id", i);
+
+// 		}
+	</script>
+</body>
+</html>

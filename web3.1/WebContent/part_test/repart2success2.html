@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="particle_group.css">
+</head>
+
+<body>
+
+<textarea id="input"></textarea>
+
+<button onclick="input(1);">뒤집기</button>
+<button onclick="input(2);">역순</button>
+<button onclick="input(4);">세우기</button>
+<button onclick="input(3);">빈칸</button>
+<button onclick="input(5);">암기 1단계</button>
+<button onclick="input(6);">암기 2단계</button>
+
+
+
+	<script>
+		
+		
+	
+		function closer() {
+			var k=0;
+ 			function addCloser(){
+				k++;
+				return k;
+ 			}
+ 			return addCloser;
+		}
+		var abc = closer();
+		
+		
+		
+		function closer2() {
+			var k=0;
+ 			function addCloser2(){
+				k++;
+				return k;
+ 			}
+ 			return addCloser2;
+		}
+		var abc2 = closer2();
+		
+		
+		
+		function closer3() {
+			var k=0;
+ 			function addCloser3(){
+				k++;
+				return k;
+ 			}
+ 			return addCloser3;
+		}
+		var abc3 = closer3();
+		
+	
+		
+	function input(how){
+		
+		
+		
+		if(how!=4){$("div").remove();}
+		var input = inputValue();
+		$("br").remove();
+		
+		if (how != 4 && how != 5 && how != 6) {
+			if (input == "") {input = " ";}
+			document.querySelector("body").innerHTML += "<p class="+abc3()+">"+input+"</p>";
+			ab2 = abc();
+ 		}
+		
+		if ( (how == 5 || how == 6) && input != "" ) {
+			document.querySelector("body").innerHTML += "<p class="+abc3()+">"+input+"</p>";
+			ab2 = abc();
+		}
+		
+
+		if(how == 5 || how == 6){ab2 = abc(); var ab3 = abc2(); var qq = ab2 - ab3;}
+		
+		var count = input.length;
+		
+		switch(how) {
+		
+			case 2:
+				for (var i = count-1; i >=0  ; i--) {
+					
+					arrayset(input, i)			
+				}
+
+				addAttribute();
+				
+				break;
+			
+				
+ 			case 5:
+ 				var CC = 3;
+ 			case 6:	
+ 				if (CC != undefined){
+ 					
+ 				} else {
+ 					CC = 2;}
+				
+ 				for (var i = 1; i <= qq; i++) {
+	 				var pText = $("p."+i).text();
+	 				
+	 				
+					for (var z = 0; z < pText.length ; z++) {
+						arrayset(pText, z);
+					}
+
+					
+					if (kkkk == undefined) {var kkkk = true;}
+
+					aaa = false;
+					
+					var jj = 0;
+					var div = $("div");
+					var ress = pText.length/CC;
+					
+					for (var ii = 0; ii < ress; ii++) {
+						
+						if (jjj == undefined) {var jjj = 0; var aaa = false; var res = 0; var fgh2 = 0; var gl = 0; fkl = 0;}
+
+						if (aaa != kkkk) {var jjj = jjj + res; aaa = kkkk;}
+						
+ 						jj = parseInt(Math.random()*(pText.length));
+						div[jj+jjj].setAttribute("class", "blank");
+						
+					}
+						
+						
+					console.log(gl);
+
+						
+// 						var fgh = $(".blank");
+						fkl = $(".blank").length;
+// 						gl = gl - gl;
+						var gl = (fkl - fgh2);
+						
+						console.log("-",gl);
+						
+						var ghty = ress - gl;
+						
+						console.log("--", ghty);
+						
+						while ( ghty > 0 ) {
+							
+							jj = parseInt(Math.random()*(pText.length));
+							div[jj+jjj].setAttribute("class", "blank");
+							
+							
+// 							fgh = $(".blank");
+							gl = $(".blank").length - fgh2;
+							
+							ghty = ress - gl;
+							
+							console.log("---",ghty);
+						}
+	  				    console.log("----",ghty);
+						
+// 						console.log($("[class=blank]").length);
+// 						var fgh = $("[class=blank]")
+// 						for (i = 0; i < fgh.length; i++) {
+// 							var $fgh2 = fgh.eq(i);
+							
+// 						}
+						
+						
+
+// 						div[jj+jjj].setAttribute("class", "blank");
+// 						console.log($("[class=blank]").attr("class"));
+// 						while ( $("div[1]").attr("class") == "blank") {
+// 							var jj2 = parseInt(Math.random()*(ss.length));
+// 						div[jj2+jjj].setAttribute("class", "blank");
+// 						}
+							
+						
+						
+					
+
+// 					console.log($("[class=blank]").length);
+// 					console.log(ss.length/CC);
+				
+
+
+					res = pText.length;
+					fgh2 = $(".blank").length;
+// 					if (sz == undefined) {var sz = 0;}
+// 					sz = sz + res;
+
+
+					document.querySelector("body").innerHTML += "<br>";
+// 					document.querySelector("body").innerHTML += "<br class="+i+">";
+				}
+ 				
+//  				console.log($("[class=blank]").length);
+// 					console.log(sz/CC);
+					
+// 					var fgh = $("[class=blank]");
+// 					var gl = fgh.length;
+					
+// 					var ghty = Math.round(sz/CC)- gl 
+					
+					
+					
+					
+// 					if ( ghty > 0 ) {
+					
+// 						var jj = parseInt(Math.random()*(sz));
+// 						div[jj].setAttribute("class", "blank");
+						
+						
+// 						var fgh = $("[class=blank]");
+// 						var gl = fgh.length;
+						
+// 						var ghty = Math.round(sz/CC)- gl;
+						
+// 					}
+
+					
+					
+// 					console.log("1-------------------")
+//  					console.log($("[class=blank]").length);
+//  					console.log(sz/CC);
+ 					
+
+					
+					
+					
+					
+					
+					
+// 					while ( (sz/CC) > gl ) {
+// // 					var okl = 1;
+// 					//while(okl<=100) {
+// // 						okl++;
+						
+// // 						console.log(div);
+// // 						console.log("--------------------1");
+// // 						var divv = dcx(div, sz);
+// // 						console.log(divv);
+// // 						console.log("--------------------2");
+						
+						
+// 						var jj = parseInt(Math.random()*(sz));
+// 						div[jj].setAttribute("class", "blank");
+						
+// 						var fgh2 = $(".blank");
+						
+// // 						console.log(fgh2);
+// // 						console.log("--------------------3");
+						
+// 						var gl = fgh2.length;
+						
+						
+// 					}
+// 					console.log("-------------------")
+//  					console.log($("[class=blank]").length);
+//  					console.log(sz/CC);
+					
+// 					console.log(gl);
+				
+			break;
+				
+
+			case 1:		
+			
+			case 3:
+				for (var i = 0; i < count; i++) {
+					arrayset(input, i);
+				}
+				
+				if(how==1) {addAttribute();	break;}
+						
+					var div = $("div");
+					var j;
+				
+				for (var i = 0; i < count/2; i++) {
+					j = parseInt(Math.random()*count);
+					div[j].setAttribute("class", "blank");
+				}
+					
+			case 4:
+				$("div").removeClass("updown");			
+			
+		}
+		
+		var start = document.querySelector("#input");
+		
+// 		if(start==undefined) {
+// 			start.value = "";
+// 		}
+// 		else {
+// 			start.value = "";
+// 		}
+		
+	start.select();
+
+	}
+	
+	
+	
+	
+// 	function dcx(div, sz) {
+		
+// 		var arr = div;
+		
+// 		arr[0].setAttribute("class","blank");
+// 		arr[2].setAttribute("class","blank");
+	
+// 		return arr;
+	/* 	var jj = parseInt(Math.random()*(sz));
+		div[jj].setAttribute("class", "blank");
+		
+ 		return div; */
+// 	}
+	
+	
+	
+	
+	
+	function addAttribute(){
+		var div = $("div");
+		
+		for (var i = 0; i < div.length; i++) {
+			div[i].setAttribute("class", "updown");
+		}
+	}
+	
+	
+	function inputValue(){return document.getElementById("input").value;}
+	
+	
+	function arrayset(input, i){
+		var w = input.charAt(i);
+		document.querySelector("body").innerHTML += "<div>"+w+"</div>";
+	}
+	
+	</script>
+</body>
+</html>

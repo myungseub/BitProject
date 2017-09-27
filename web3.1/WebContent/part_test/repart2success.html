@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="particle_group.css">
+</head>
+
+<body>
+
+<textarea id="put"></textarea>
+
+<button onclick="input(1);">뒤집기</button>
+<button onclick="input(2);">역순</button>
+<button onclick="input(4);">세우기</button>
+<button onclick="input(3);">빈칸</button>
+<button onclick="input(5);">암기</button>
+
+
+	<script>
+		
+		function closer() {
+			var k=0;
+ 			function addCloser(){
+				k++;
+				return k;
+ 			}
+ 			return addCloser;
+		}
+		var abc = closer();
+		
+		
+		
+		function closer2() {
+			var k=0;
+ 			function addCloser2(){
+				k++;
+				return k;
+ 			}
+ 			return addCloser2;
+		}
+		var abc2 = closer2();
+		
+		
+		
+		function closer3() {
+			var k=0;
+ 			function addCloser3(){
+				k++;
+				return k;
+ 			}
+ 			return addCloser3;
+		}
+		var abc3 = closer3();
+		
+	
+		
+	function input(how){
+		
+		
+		
+		if(how!=4){$("div").remove();}
+		var s = rowValue();
+		$("br").remove();
+		
+		if (how != 4 && how != 5) {
+			if (s == "") {s = " ";}
+			document.querySelector("body").innerHTML += "<p class="+abc3()+">"+s+"</p>";
+			ab2 = abc();
+ 		}
+		
+		if ( how == 5 && s != "" ) {
+			document.querySelector("body").innerHTML += "<p class="+abc3()+">"+s+"</p>";
+			ab2 = abc();
+		}
+		
+
+		if(how == 5){ab2 = abc(); var ab3 = abc2(); var qq = ab2 - ab3;}
+		
+		var count = s.length;
+		
+		switch(how) {
+		
+			case 2:
+				for (var i = count-1; i >=0  ; i--) {
+					
+					arrayset(s, i)			
+				}
+
+				addAttribute();
+				
+				break;
+			
+				
+ 			case 5:
+				
+				for (var i = 1; i <= qq; i++) {
+	 				var ss = $("p."+i).text();
+	 				
+	 				
+					for (var z = 0; z < ss.length ; z++) {
+						arrayset(ss, z);
+					}
+
+					
+					if (kkkk == undefined) {var kkkk = true;}
+
+					aaa = false;
+					
+					var jj = 0;
+					var div = $("div");
+
+					
+					for (var ii = 0; ii <= ss.length/2; ii++) {
+						
+						jj = parseInt(Math.random()*(ss.length));
+						
+						if (jjj == undefined) {var jjj = 0; var aaa = false; var res = 0;}
+
+						if (aaa != kkkk) {var jjj = jjj + res; aaa = kkkk;}
+						
+						
+						div[jj+jjj].setAttribute("class", "blank");
+						
+					}
+
+					res = ss.length;
+					
+					document.querySelector("body").innerHTML += "<br class="+i+">";
+					
+				}
+				
+			break;
+				
+
+			case 1:		
+			
+			case 3:
+				for (var i = 0; i < count; i++) {
+					arrayset(s, i);
+				}
+				
+				if(how==1) {addAttribute();	break;}
+						
+					var div = $("div");
+					var j
+				
+				for (var i = 0; i < count/2; i++) {
+					j = parseInt(Math.random()*count);
+					div[j].setAttribute("class", "blank");
+				}
+					
+			case 4:
+				$("div").removeClass("updown");			
+			
+		}
+		
+		var start = document.querySelector("#put");
+		
+		if(start==undefined) {
+			start.value = "";
+		}
+		else {
+			start.value = "";
+		}
+		
+	start.select();
+
+	}
+	
+	
+	function addAttribute(){
+		var div = $("div");
+		
+		for (var i = 0; i < div.length; i++) {
+			div[i].setAttribute("class", "updown");
+		}
+	}
+	
+	
+	function rowValue(){return document.getElementById("put").value;}
+	
+	
+	function arrayset(s, i){
+		var w = s.charAt(i);
+		document.querySelector("body").innerHTML += "<div>"+w+"</div>";
+	}
+	
+	</script>
+</body>
+</html>
